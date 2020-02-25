@@ -1,0 +1,57 @@
+Nombre de comptes “FR”
+
+select count distinct ?aut
+
+from <http://hub.abes.fr/referentiel/orcid2018/fr>
+
+from <http://hub.abes.fr/referentiel/orcid2018/summaries>
+
+ where {
+
+?aut <http://www.geonames.org/ontology#countryCode>     "FR".
+
+?aut foaf:givenName ?prenom.
+
+?aut foaf:familyName ?nom.
+
+}
+
+Nombre de comptes “FR” sans doc
+
+select count distinct ?aut
+
+from <http://hub.abes.fr/referentiel/orcid2018/fr>
+
+from <http://hub.abes.fr/referentiel/orcid2018/summaries>
+
+ where {
+
+?aut <http://www.geonames.org/ontology#countryCode>     "FR".
+
+?aut foaf:givenName ?prenom.
+
+?aut foaf:familyName ?nom.
+
+FILTER NOT EXISTS {?doc dcterms:contributor ?aut. }
+
+}
+
+Les comptes “FR”  avec documents
+
+select count distinct ?aut
+
+from <http://hub.abes.fr/referentiel/orcid2018/fr>
+
+from <http://hub.abes.fr/referentiel/orcid2018/summaries>
+
+ where {
+
+?aut <http://www.geonames.org/ontology#countryCode>     "FR".
+
+?aut foaf:givenName ?prenom.
+
+?aut foaf:familyName ?nom.
+
+?doc dcterms:contributor ?aut.
+
+}
