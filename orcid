@@ -1,3 +1,11 @@
+Nombre total de comptes ORCID :
+
+SELECT COUNT (?compte)
+FROM <http://hub.abes.fr/referentiel/orcid2018/fr>
+FROM <http://hub.abes.fr/referentiel/orcid2018/summaries>
+
+WHERE {?compte a foaf:PersonalProfileDocument}
+
 Nombre de comptes “FR”
 
 select count distinct ?aut
